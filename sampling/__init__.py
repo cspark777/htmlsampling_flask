@@ -14,7 +14,8 @@ import sqlalchemy_utils
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 static_path = basedir + "/static/"
-app = Flask(__name__, static_folder=static_path)
+
+app = Flask(__name__, static_url_path='', static_folder=static_path)
 
 app.config['SECRET_KEY'] = 'myscecret'
 
