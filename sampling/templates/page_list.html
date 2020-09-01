@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block div %}
+<section class="section-content" id="welcome" class="p-b-0">
+    <div class="container">
+        <div class="row">
+            <div class="content col-lg-8">                
+                <div class="breadcrumb">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Page list</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="line"></div>                
+            </div>
+            <div class="col-lg-4 text-right">
+                <a href="/page/create" id="add_page_btn" type="button" class="btn btn-light"><i class="icon-plus"></i> New Page</a>                
+            </div>
+        </div>        
+        <div class="row">
+            <div class="col-lg-12">
+                <table id="page_table" class="table table-bordered table-hover" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th width="5%">No</th>
+                            <th width="10%">Html Key</th>
+                            <th width="70%">Html Content</th>
+                            <th width="15%">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        {% for html in htmls %} 
+                        <tr>   
+                            <td>{{ loop.index }} </td>
+                            <td>{{ html.html_key }}</td>
+                            <td>{{ html.html }}</td>
+                            <td>
+                                <a href="/page/view/{{ html.html_key }}"><div class="icon-button"><i class="fa fa-search"></i></div></a>
+                                <a href="/page/edit/{{  html.html_key }}"><div class="icon-button"><i class="fa fa-edit"></i></div></a>
+                                <a href="javascript:;" class="delete-btn" data-key="{{ html.html_key }}" ><div class="icon-button"><i class="fa fa-window-close"></i></div></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block div %}
+<section class="section-content">
+    <div class="container">
+        <div class="row">
+            <div class="content col-lg-12">                
+                <div class="breadcrumb">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Page View</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="line"></div>                
+            </div>
+        </div>
+        <div class="row">
+            <!-- content -->            
+            <div class="content col-lg-12">
+                <!-- Blog -->
+                <div id="blog" class="single-post">
+                    <!-- Post single item-->
+                    <div class="post-item">
+                        <div class="post-item-wrap">            
+                            <form action="/page/create" method="post" id="copy_text_form">
+                                <input type="hidden" name="copy_text_action" value="1">
+                                <input type="hidden" name="copy_text" id="copy_text" value="">
+                            </form>                
+                            <div class="post-item-description">                                 
+                                <p>                                 
+                                {{ html.html }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end: Post single item-->
+                </div>
+            </div>
+            <!-- end: content -->
+        </div>
+    </div>
+</section>
+<!-- end: Page Content -->
+{% endblock %}
